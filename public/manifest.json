@@ -1,0 +1,17 @@
+{
+  "name": "Ofclock",
+  "short_name": "Ofclock",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0b1220",
+  "description": "Deploy application and database instances in seconds. Connect your domain and start building fast—WordPress, n8n, MySQL, MongoDB, and more...",
+  "icons": [
+    {
+      "src": "/Ofclock-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
