@@ -11,6 +11,7 @@ const inter = Inter({
   weight: ['300', '400', '500', '600', '700'],
   display: 'swap',
 });
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3001';
 const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -22,33 +23,57 @@ export const viewport = {
 
 export const metadata = {
   title: 'Ofclock — Deploy Apps & Databases in Minutes',
-  description: 'Deploy application and database instances in seconds. Connect your domain and start building fast—WordPress, n8n, MySQL, MongoDB, and more...',
+  description:
+    'Deploy application and database instances in seconds. Connect your domain and start building fast—WordPress, n8n, MySQL, MongoDB, and more...',
   applicationName: 'Ofclock',
   metadataBase: new URL(siteUrl),
   alternates: {
     canonical: '/',
   },
   icons: {
-    icon: '/Ofclock-icon.svg',
-    apple: '/logo-ofclock.svg'
+    icon: [
+      { url: '/Ofclock-icon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/Ofclock-icon.svg', type: 'image/svg+xml' },
+      { url: '/Ofclock-icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/Ofclock-icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/Ofclock-icon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
   },
   manifest: '/manifest.json',
-  keywords: ['Ofclock', 'deploy apps', 'deploy databases', 'WordPress hosting', 'n8n hosting', 'MySQL', 'MongoDB', 'cloud hosting', 'custom domains', 'SSL'],
+  keywords: [
+    'Ofclock',
+    'deploy apps',
+    'deploy databases',
+    'WordPress hosting',
+    'n8n hosting',
+    'MySQL',
+    'MongoDB',
+    'cloud hosting',
+    'custom domains',
+    'SSL',
+  ],
   openGraph: {
     type: 'website',
     url: '/',
     title: 'Ofclock — Deploy Apps & Databases in Minutes',
-    description: 'Launch WordPress, n8n, MySQL, MongoDB, and more. Connect your domain, get free SSL, and scale fast.',
+    description:
+      'Launch WordPress, n8n, MySQL, MongoDB, and more. Connect your domain, get free SSL, and scale fast.',
     siteName: 'Ofclock',
     images: [
-      { url: '/Open-Graph.png', alt: 'Ofclock — Deploy Apps & Databases in Minutes' }
+      {
+        url: '/Open-Graph.png',
+        alt: 'Ofclock — Deploy Apps & Databases in Minutes',
+      },
     ],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Ofclock — Deploy Apps & Databases in Minutes',
-    description: 'Launch WordPress, n8n, MySQL, MongoDB, and more. Connect your domain, get free SSL, and scale fast.',
+    description:
+      'Launch WordPress, n8n, MySQL, MongoDB, and more. Connect your domain, get free SSL, and scale fast.',
     images: ['/Twitter.png'],
   },
   robots: {
@@ -70,29 +95,35 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen bg-white dark:bg-gray-950 antialiased`}>
+      <body
+        className={`${inter.className} min-h-screen bg-white dark:bg-gray-950 antialiased`}
+      >
         <Script
           id="ld-json-organization"
           type="application/ld+json"
           strategy="afterInteractive"
-        >{JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'Organization',
-          name: 'Ofclock',
-          url: siteUrl,
-          logo: `${siteUrl}/Ofclock-icon.svg`,
-          sameAs: [],
-        })}</Script>
+        >
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Ofclock',
+            url: siteUrl,
+            logo: `${siteUrl}/Ofclock-icon.svg`,
+            sameAs: [],
+          })}
+        </Script>
         <Script
           id="ld-json-website"
           type="application/ld+json"
           strategy="afterInteractive"
-        >{JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'WebSite',
-          name: 'Ofclock',
-          url: siteUrl,
-        })}</Script>
+        >
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Ofclock',
+            url: siteUrl,
+          })}
+        </Script>
         <ThemeProvider>
           <div className="min-h-screen flex flex-col">
             <SiteHeader />
